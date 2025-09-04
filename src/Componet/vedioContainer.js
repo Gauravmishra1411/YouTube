@@ -60,7 +60,7 @@ console.log("data=>",videos);
                   <GrFormView size={18} /> {viewCount%100}K
                 </span>
                 <span className="flex items-center gap-1 font-medium">
-                  <AiFillLike size={16} /> {likeCount/10}k
+                  <AiFillLike size={16} /> {likeCount/10+"k"}
                 </span>
               </div>
 
