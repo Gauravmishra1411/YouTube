@@ -1,25 +1,15 @@
- import React, { useEffect, useState } from "react";
-import { YOUTUBE_VEDIO_API } from "../util/Contact";
+ 
+
 import Shimer from "./Shimer";
 import { AiFillLike } from "react-icons/ai";
 import { GrFormView } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import axios from "axios"; 
-import { useDispatch } from "react-redux"; 
+import { useCustom } from "../util/costom/UsedCostam"; // ✅ correct
+
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
-    const dispatch=useDispatch()
-    dispatch(videos)
-  useEffect(() => {
-    getVideos();
-  }, []);
-
-  async function getVideos() {
-    const data = await axios(YOUTUBE_VEDIO_API);
-    // const json = await data.json();
-    setVideos(data?.items || []);
-  }
+ const videos=useCustom()
+console.log("data=>",videos);
 
   if (videos.length === 0) {
     return <Shimer />;
@@ -45,7 +35,7 @@ const VideoContainer = () => {
             key={id}
             className="bg-white w-50 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300"
           >
-             <Link to={"watch"}  >
+             <Link to={"/watch ?v="+id}  >
             <div className="aspect-video">
               <img
                 alt={title}
@@ -70,7 +60,7 @@ const VideoContainer = () => {
                   <GrFormView size={18} /> {viewCount%100}K
                 </span>
                 <span className="flex items-center gap-1 font-medium">
-                  <AiFillLike size={16} /> {likeCount}
+                  <AiFillLike size={16} /> {likeCount%2*100}
                 </span>
               </div>
 

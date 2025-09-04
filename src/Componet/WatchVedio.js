@@ -1,18 +1,36 @@
-// import React, { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { closeMenu } from "../util/Slice/appSlice";
-// import { useSelector } from "react-redux";
- 
-// const WatchVedio = () => {
-//   const dispatch = useDispatch();
-// const data=useSelector((store)=>store.app.youtube)
-//   useEffect(() => {
-//     dispatch(closeMenu());
-//   }, [dispatch]); // ✅ run once on mount
+import { useEffect } from 'react'
+import { useCustom } from '../util/costom/UsedCostam'
+import { useDispatch } from 'react-redux'
+import { closeMenu } from '../util/Slice/appSlice'
+import { useSearchParams } from "react-router-dom";
+const WatchVedio = () => {
+  const videos = useCustom()
+  const dispatch = useDispatch()
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("v");
+  console.log(id);
+  const {
+    thumbnails: { standard },
 
-//   return (
-//      <div>hello</div>
-//   );
-// };
+  } = videos;
+  useEffect(() => {
+    dispatch(closeMenu())
+  }, [dispatch])
 
-// export default WatchVedio;
+
+  return (
+    <div>
+      <iframe
+        width="300"
+        height="300"
+        src={standard + id}
+        title="YouTube video player"
+        frameBorder="1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+
+export default WatchVedio
