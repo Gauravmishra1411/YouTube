@@ -8,6 +8,7 @@ import { FaMusic, FaGamepad, FaNewspaper, FaTrophy, FaShoppingBag } from "react-
 import { RiMovie2Fill, RiLiveFill } from "react-icons/ri";
 import { MdCastForEducation } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   const isMenuOpen=useSelector((store)=>store.app.isMenuOpen)
   return !isMenuOpen  ? null:(
@@ -16,9 +17,9 @@ const Sidebar = () => {
       {/* Home Section */}
       <div>
         <ul>
-          <li className="flex items-center gap-3 font-semibold py-2 hover:bg-gray-100 rounded-lg cursor-pointer">
+          <Link to="/" className="flex items-center gap-3 font-semibold py-2 hover:bg-gray-100 rounded-lg cursor-pointer">
             <IoHome size={20} /> Home
-          </li>
+          </Link>
           <li className="flex items-center gap-3 font-semibold py-2 hover:bg-gray-100 rounded-lg cursor-pointer">
             <SiYoutubeshorts size={20} /> Shorts
           </li>

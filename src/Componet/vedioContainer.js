@@ -35,7 +35,7 @@ console.log("data=>",videos);
             key={id}
             className="bg-white w-50 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300"
           >
-             <Link to={"/watch ?v="+id}  >
+             <Link to={"/watch/"+id}  >
             <div className="aspect-video">
               <img
                 alt={title}
@@ -60,7 +60,7 @@ console.log("data=>",videos);
                   <GrFormView size={18} /> {viewCount%100}K
                 </span>
                 <span className="flex items-center gap-1 font-medium">
-                  <AiFillLike size={16} /> {likeCount%2*100}
+                  <AiFillLike size={16} /> {likeCount%2}k
                 </span>
               </div>
 

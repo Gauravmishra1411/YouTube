@@ -1,36 +1,34 @@
-import { useEffect } from 'react'
-import { useCustom } from '../util/costom/UsedCostam'
+ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { closeMenu } from '../util/Slice/appSlice'
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 const WatchVedio = () => {
-  const videos = useCustom()
-  const dispatch = useDispatch()
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("v");
-  console.log(id);
-  const {
-    thumbnails: { standard },
+  const dispatch = useDispatch();
+  const { id } = useParams(); // ✅ correctly destructure
 
-  } = videos;
   useEffect(() => {
-    dispatch(closeMenu())
-  }, [dispatch])
-
+    console.log("-> id:", id);
+    dispatch(closeMenu());
+  }, [dispatch, id]);
 
   return (
     <div>
-      <iframe
-        width="300"
-        height="300"
-        src={standard + id}
-        title="YouTube video player"
-        frameBorder="1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
+      {id ? (
+        <iframe
+          width="1050"
+          height="500"
+          src={`https://www.youtube.com/embed/${id}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <p>No video selected</p>
+      )}
     </div>
   );
-}
+};
 
-export default WatchVedio
+export default WatchVedio;
