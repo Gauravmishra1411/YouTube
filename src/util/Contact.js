@@ -1,0 +1,5 @@
+const GOOGLE_API_KEY='AIzaSyAw2kfUNqRXZBp7-k4b_p3XfWHWwm24nG4'
+export const YOUTUBE_VEDIO_API="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=55&key="+GOOGLE_API_KEY 
+// Authorization: Bearer [YOUR_ACCESS_TOKEN]
+// Accept: application/json
+//   
