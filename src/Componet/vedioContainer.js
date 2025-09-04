@@ -1,7 +1,7 @@
  
 
 import Shimer from "./Shimer";
-import { AiFillLike } from "react-icons/ai";
+import { AiFillLike,AiFillUnLike } from "react-icons/ai";
 import { GrFormView } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useCustom } from "../util/costom/UsedCostam"; // ✅ correct
@@ -60,6 +60,7 @@ console.log("data=>",videos);
                   <GrFormView size={18} /> {viewCount%100}K
                 </span>
                 <span className="flex items-center gap-1 font-medium">
+ <AiFillUnLike size={16} /> {likeCount/100+"k"}
                   <AiFillLike size={16} /> {likeCount/10+"k"}
                 </span>
               </div>
