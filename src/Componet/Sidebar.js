@@ -57,10 +57,10 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      {/* Divider */}
+    
       <hr className="my-4" />
 
-      {/* Explore Section */}
+    
       <div>
         <h1 className="font-bold text-lg mb-2">Explore</h1>
         <ul>
