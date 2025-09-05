@@ -17,13 +17,13 @@ const WatchVedio = () => {
 
   return (
 
-    <div className='flex justify-start align-baseline  '>
-      <div className='mx-20 pt-5' >
+    <div className='flex float-left'>
+      <div className='mx-10 py-2 w-8/12' >
         {id ? (
           <iframe
-            width="1050"
+            width="1024"
             className='sticky top-0'
-            height="500"
+            height="600"
             src={`https://www.youtube.com/embed/${id}`}
             title="YouTube video player"
             frameBorder="0"
@@ -34,7 +34,7 @@ const WatchVedio = () => {
           <p>No video selected</p>
         )}
       </div>
-      <div className=' mr-32 '>
+      <div className='border border-gray-600 my-1'>
         {vedios.map((item, index) => {
   const {
     id, // sometimes YouTube API nests id as { videoId }
@@ -50,7 +50,7 @@ const WatchVedio = () => {
         <img
           alt={title}
           src={standard?.url}
-          className="w-80 h-30 object-cover   rounded-lg mx-7 pt-4 shadow-xl"
+          className="w-64 static h-30 object-cover   rounded-lg ml-16 pt-4 shadow-xl"
         />
         <p className="text-sm font-semibold text-nowrap">{title.slice(1,50)}</p>
       </div>

@@ -9,14 +9,14 @@ import { useCustom } from "../util/costom/UsedCostam"; // ✅ correct
 
 const VideoContainer = () => {
  const videos=useCustom()
-console.log("data=>",videos);
+// console.log("data=>",videos);
 
   if (videos.length === 0) {
     return <Shimer />;
   }
 
   return (
-    <div className="w-11/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 ml-6">
+    <div className="w-10/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-32">
       {videos.map((video) => {
         const {
           id,

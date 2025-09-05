@@ -13,7 +13,7 @@ const Sidebar = () => {
   const isMenuOpen=useSelector((store)=>store.app.isMenuOpen)
   return !isMenuOpen  ? null:(
    <>
-   {isMenuOpen && ( <div className="w-5/12 h-screen overflow-y-auto border-r border-gray-300 p-4 sticky top-0 bg-white">
+   {isMenuOpen && ( <div className="w-3/12 h-screen overflow-y-auto border-r border-gray-300 p-4 sticky top-0 bg-white">
       {/* Home Section */}
       <div>
         <ul>
